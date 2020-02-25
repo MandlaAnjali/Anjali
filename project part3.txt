@@ -1,0 +1,161 @@
+
+3.Support Vector Machine(SVM)
+The Support Vector Machine (SVM) is a supervised learning method for Data analysis, Pattern recognition, and classification and regression analysis. It is a classification technique based on statistical learning theory. The classification of medical data has become an increasingly challenging problem, due to recent advances in medical mining technology. Classification of this tremendous amount of data is time consuming and utilizes excessive computational effort, which may not be appropriate for many applications. SVM can provide great performance on the pattern recognition and classification.
+The SVM is a statistical learning algorithm that classifies the samples using a subset of training samples called support vectors. It is actually based on learning with Kernels some of which form the support vectors. A great advantage of this technique is that it can use large input data and feature sets. Thus, it is easily to test the influence of the number of features on classification accuracy. Several recent studies have reported that SVM generally are capable of delivering higher performance in terms of classification accuracy than the other classification algorithms. 
+SVMs have been employed in a wide range of real world problems such as medical diagnosis, text pattern recognition, bioinformatics categorization, hand-written digit recognition, image classification, micro-array gene expression data analysis and object detection.
+
+
+The main advantages of the SVM approach are:
+	SVMs implement a form of structural risk minimization– They attempt to find a compromise between the minimization of empirical risk and the prevention of overfitting.
+	The problem is a convex quadratic programming (QP) problem. So there are no non-global minima, and the problem is readily solvable using quadratic programming techniques.
+	The resulting classifier can be specified completely in terms of its support vectors and Kernel function type.
+3.1. Basic Concepts of Support Vector Machines
+SVM have become a highly successful methodology in data mining and machine learning. Classifiers can be obtained by applying customized algorithms to optimization formulations of SVM problems whose size is related to the number of training points. The SVM performs classification by constructing an N-dimensional hyperplane that optimally separates the data into two categories.. The subsets of data instances that actually define the hyperplane are called the “support vectors”, and the margin is defined as the distance between the hyperplane and the nearest support vector. By maximizing this separation, it is believed that the SVM better generalizes to unseen data instances, while also mitigating the effects of noisy data or over-training. Error is minimized by maximizing the margin, and the hyperplane is defined as the center line of the separating space, creating equivalent margins for each class. The goal of an SVM is to separate data instances into two classes using examples of each from the training data to define the separating hyperplane.
+
+
+The SVM method provides an optimally separating hyperplane in the sense that the margin between two groups is maximized as shown in figure 3.1
+ 
+                  Figure 3.1: SVM Classification Optimal Hyper plane
+
+The SVM algorithm constructs a maximum margin hyperplane which separates a set of positive examples from a set of negative examples. In the case of examples not linearly separable, SVM uses a Kernel functions to map the examples from input space into high 
+
+dimensional feature space. Using a Kernel function can solve the non-linear problem. The aim of support vector classification is to device a computationally efficient way of learning good separating hyper planes in a high dimensional feature space.
+The basic procedure for applying SVM can be stated briefly as follows. Firstly, mapping the input vectors into a feature space. Then, within the feature space, seeking an optimized division, i.e. construct a hyper-plane that separates two or more classes. The decision function (hyper-plane) of SVM is composed of a set of support vectors, which are selected from the training samples. Generally, the main idea of SVM is to find the optimal separating hyper-plane with the maximum margin comes for binary classification. After we get the trained SVM model, we use the decision distance, which is between the hyper-plane and data point.
+A simple description of the SVM algorithm is provided as follows. Suppose a training set (xi, yi), i =1, 2, ..., m where xi?Rn, y?{+1, -1}, the following conditions:
+xi + b = +1 for  yi = +1
+xi + b =  -1 for  yi = -1                       			 (1)
+Which is equivalent to:	
+yi (xi . w + b) -1 = 0 ?i = 1,….,n                         	  (2)
+This technique looks for a hyper-plane (w. xi) + b = 0 to separate the data from classes label +1 and -1 with a maximal margin in the feature space. The maximization of the margin is equivalent to minimize the norm of w. In primal weight space, the classifier takes the decision function from formula 3. Thus, SVM can be trained to solve the following optimization problem:
+f (x) = sign(w. x) + b                     			 (3)
+Minimize  1/2 wT w +  ?_(i=1)^N¦??i         ?			 (4)
+Subject to  yi( w. xi + b) = 1 -?i and ?i = 0 for  i =1,…,n .
+ It should be pointed out that SVM were originally proposed to solve binary classification problems. Nevertheless, several strategies can be employed to extend this learning technique to multi-class problems.
+For linearly separable data, the support vectors are the subset of actual training tuples. The above equation tells us on which side of the hyperplane the test tuple xT falls. If the sign is in positive, then xT falls on or above the maximal margin hyperplane and SVM predicts that xT belongs to class +1. If the sign is in negative, then xT falls on or below the maximal margin hyperplane and the class prediction is -1.
+There are two types of SVMs, (1) Linear SVM, which separates the data points using a linear decision boundary and (2) Non-linear SVM, which separates the data points using a non-linear decision boundary.
+The Linear SVM performs well on datasets that can be easily separated by a hyperplane into two parts. But sometimes datasets are complex and are difficult to classify using a linear Kernel. Non-linear SVM classifiers can be used for such complex datasets. The concept behind non-linear SVM classifier is to transform the dataset into a high dimensional space where the data can be separated using a linear decision boundary. In the original feature space the decision boundary is not linear. The main problem with transforming the dataset to higher dimension is the increase in complexity of the classifier. Also the exact mapping function that can separate data linearly in higher dimensional space is not known. In order to overcome this, a concept called Kernel trick is used to transform the data to higher dimensional space.
+Nonlinear SVM are more broadly useful than linear SVMs, as they can find more accurate predictors when the data under consideration have curved intrinsic category boundaries. Nonlinear SVM formulations based on Kernels are, however, often much more expensive and data-intensive to solve than linear SVMs, and the resulting classifiers can be expensive to apply.
+The Kernel parameter is one of the most important design choices for the SVM since it implicitly defines the structure of the high dimensional feature space where a maximal margin hyper plane will be found. Using the approximate algorithms can reduce the computation time, but degrade the classification performance.
+However, the SVM has a drawback that since learning of the SVM is a time consuming for a large scale of data and degrade the classification performance. To overcome the above drawbacks, we have implemented the SVM ensemble classification techniques.  When combining each individual SVM has been trained independently from the random chosen training samples and the correctly classified area in the space of data samples of each SVM. An important area of active research in machine learning is to search meta parameters C and ?. These two meta parameters are chosen according to performance on a training data, evaluate the system performance in a given different pairs C, ?, choose the best set of parameters and use them to train the model. 
+3.2.How does SVM work?
+Above, we got accustomed to the process of segregating the two classes with a hyper-plane. Now the burning question is “How can we identify the right hyper-plane?”. Don’t worry, it’s not as hard as you think!
+
+3.2.1.Identify the right hyper-plane (Scenario-1): Here, we have three hyper-planes (A, B and C). Now, identify the right hyper-plane to classify star and circle.
+ 
+	You need to remember a thumb rule to identify the right hyper-plane: “Select the hyper-plane which segregates the two classes better”. In this scenario, hyper-plane “B” has excellently performed this job.
+3.2.2.Identify the right hyper-plane (Scenario-2): Here, we have three hyper-planes (A, B and C) and all are segregating the classes well. Now, How can we identify the right hyper-plane?
+ 
+	Here, maximizing the distances between nearest data point (either class) and hyper-plane will help us to decide the right hyper-plane. This distance is called as Margin. Let’s look at the below snapshot: 
+
+	Above, you can see that the margin for hyper-plane C is high as compared to both A and B. Hence, we name the right hyper-plane as C. Another lightning reason for selecting the hyper-plane with higher margin is robustness. If we select a hyper-plane having low margin then there is high chance of miss-classification.
+3.2.3.Identify the right hyper-plane (Scenario-3):Hint: Use the rules as discussed in previous section to identify the right hyper-plane
+ 
+	Some of you may have selected the hyper-plane B as it has higher margin compared to A. But, here is the catch, SVM selects the hyper-plane which classifies the classes accurately prior to maximizing margin. Here, hyper-plane B has a classification error and A has classified all correctly. Therefore, the right hyper-plane is A.
+3.2.4.Can we classify two classes (Scenario-4)?: Below, I am unable to segregate the two classes using a straight line, as one of star lies in the territory of outlier.
+ 
+	As I have already mentioned, one star at other end is like an outlier for star class. SVM has a feature to ignore outliers and find the hyper-plane that has maximum margin. Hence, we can say, SVM is robust to outliers.
+ 
+3.2.5.Find the hyper-plane to segregate to classes (Scenario-5): In the scenario below, we can’t have linear hyper-plane between the two classes, so how does SVM classify these two classes? Till now, we have only looked at the linear hyper-plane.
+ 
+	SVM can solve this problem. Easily! It solves this problem by introducing additional feature. Here, we will add a new feature z=x^2+y^2. Now, let’s plot the data points on axis x and z:
+ 
+
+	In above plot, points to consider are:
+	All values for z would be positive always because z is the squared sum of both x and y
+	In the original plot, red circles appear close to the origin of x and y axes, leading to lower value of z and star relatively away from the origin result to higher value of z.
+In SVM, it is easy to have a linear hyper-plane between these two classes. But, another burning question which arises is, should we need to add this feature manually to have a hyper-plane. No, SVM has a technique called the kernel trick. These are functions which takes low dimensional input space and transform it to a higher dimensional space i.e. it converts not separable problem to separable problem, these functions are called kernels. It is mostly useful in non-linear separation problem. Simply put, it does some extremely complex data transformations, then find out the process to separate the data based on the labels or outputs you’ve defined.
+When we look at the hyper-plane in original input space it looks like a circle:
+ 
+
+
+
+3.3 SVM Classification
+Here we will first introduce the simple case of a linearly separable set and then describe the concept of SVMs and expand it to the more general, nonseparable case. Finally, we will introduce the general case of nonlinear separating surfaces.
+
+
+
+3.3.1 Optimal separating hyperplane
+If we have a training example set S = {(xi, yi) 1= i = N}, and each example xi e Rn belongs to a class labeled by yi ?{-1,1}, our object is to find a hyperplane that divides S, leaving all the points with the same label on the same side of the hyperplane. Meanwhile, we also maximize the distance between the two classes and the hyperplane. This means we must find a pair (w, b) such that          
+ yi(w . xi +b)  > 0, i = 1, . . . , N.       		 (5)
+where w e Rn and b e R. According to the pair (w, b), we can achieve an equation of a separating hyperplane (Figure 3.1),
+      w . x +b = 0.                        			 (6)
+We can say that the set S is linearly separable if there is at least one hyperplane satisfying Equation (4). Meanwhile, we can rescale w and b so that 
+        yi(w . xi + b)  =1, i = 1, . . . , N                     (7)
+The minimal distance between the closest point and the hyperplane is 1/(||w||), and the margin is 2/(||w||). The margin is a measure of generalizability. The larger the margin, the better the generalization.
+Among the separating hyperplanes, there must be one from which the distance to the closest point is maximal the optimal separating hyperplan and which will maximize the margin. The goal of the SVM is to find the optimal separating hyperplan of the set S. For the optimal separating hyperplan to be found, ||w||2 must be minimized under constraint Equation (6). 
+According to the property that ||w||2 is convex , we can minimize it under constraint Equation (6) by means of the classic method of Lagrange multipliers. 
+Hence, if a = (a1, a2, . . . , aN) is the N nonnegative Lagrange multipliers associated with constraint Equation (6), the problem of finding the optimal separate hyperplane is equivalent to the maximization of the function
+W(a ) =?_(i=1)^N¦ai - 1/2 ?_(i,j=1)^N¦ai  aj yiyj xi . xj,           		  	  (8) 
+where ai  = 0 and under constraint
+     ?_(i=1)^N¦yiai = 0(w, b)
+If we denote the vector a = (a1, a2, . . . , aN)  as the solution of Equation (7), then the optimal separating hyperplane has the following expansion:
+     w ¯ = ?_(i=1)^N¦ai yixi,            					  (9)
+While b can be determined from a and from the Kuhn- Tucker conditions, as follows:
+    a ¯i [ yi(( w) ¯ . xi + b ¯ ) – 1 ]  = 0, i =1, 2, . . . , N.             	  (10)
+If the training examples (xi, yi) correspond with nonzero coefficients ai, then we call them support vectors. Finally, the decision function of classifying a new data point x can be written as follows:
+f(x) = sgn(?_(i=1)^N¦?a ¯i ?yi xi . x + b ¯) .         				  (11)
+3.3.2 Linearly non separable case
+In the preceding section, we supposed that the set S was linearly separable and we introduced the concept of the SVM. Now, we expand set S to the linearly non separable set S. Since the set S' is linearly non separable, we must introduce N nonnegative
+variables ? = (	?1, ?2, . . . ,?N), such that
+      yi(w . xi + b) = 1 – ?i , i =1, 2, . . . , N.             		(12) 
+We call these slack variables. Their purpose is to allow misclassified points corresponding with ?i  > 1. Hence, the generalized optimal separating hyperplane is the solution of the following minimizing problem,
+  1/2 w.w  + C  ?_(i=1)^N¦ ?i     					 (13)
+where C is a regularization parameter. If the parameter C is small, the optimal separating hyperplane tends to maximize the distance 1/||w||, while a larger C will cause the optimal separating hyperplane to minimize the number of misclassified points.
+3.3.3 Nonlinear SVMs
+Most training sets that we want to classify are linearly non separable. We may be able to solve these problems by introducing slack variables. Even if we do, however, the classification results will not be optimal. Instead of using slack variables, we can transfer data from the original low-dimensional feature space into a high-dimensional one. Through this transformation, the optimal separating hyperplane can be constructed more easily, and we can achieve a classifier with better generalization. 
+Let (x) denote a mapping function that maps x into a high-dimensional feature space. We can then rewrite Equation (7) as follows:
+W (a ) = ?_(i=1)^N¦  ai - 1/2 ?_(i,j=1)^N¦ai  aj yiyj  (xi) .  ( xj)            	  (14)
+Now, let K(xi, xj)   (xi).   (xj). Equation (13) can then be rewritten as
+W (a ) =   ai -    yiyj   )           		 (15)
+where K is called a Kernel function and must satisfy the Mercer theorem. Finally, we can achieve a new decision function, as follows:
+f(x) = sgn [ ( yik( xi . x) + b]       			 (16)
+The nonlinear feature space can be mapped to some higher-dimensional feature space where the training set is separable as shown in figure 3.2. 
+ 
+                             Figure 3.2: Nonlinear Transformation 
+
+The function K(x(i), x) is a Kernel function and SVMs are powerful in the sense that one can substitute different Kernel functions. Several common Kernel functions are used to map data into high-dimensional feature space.
+3.3.4.kernel methods
+In machine learning, kernel method are a class of algorithms for pattern analysis, whose best known member is the support vector machine (SVM). The general task of pattern analysis is to find and study general types of relations (for example clusters, rankings, principal components, correlations, classifications) in datasets. In its simplest form, the kernel trick means transforming data into another dimension that has a clear dividing margin between classes of data.[1] For many algorithms that solve these tasks, the data in raw representation have to be explicitly transformed into feature vector representations via a user-specified feature map: in contrast, kernel methods require only a user-specified kernel, i.e., a similarity function over pairs of data points in raw representation.
+Kernel methods owe their name to the use of kernel functions, which enable them to operate in a high-dimensional, implicit feature space without ever computing the coordinates of the data in that space, but rather by simply computing the inner products between the images of all pairs of data in the feature space. This operation is often computationally cheaper than the explicit computation of the coordinates. This approach is called the "kernel trick"[2]. Kernel functions have been introduced for sequence data, graphs, text, images, as well as vectors.
+Algorithms capable of operating with kernels include the kernel perceptron, support vector machines (SVM), Gaussian processes, principal components analysis(PCA), canonical correlation analysis, ridge regression, spectral clustering, linear adaptive filters and many others. Any linear model can be turned into a non-linear model by applying the kernel trick to the model: replacing its features (predictors) by a kernel function[3].
+Most kernel algorithms are based on convex optimization or eigenproblems and are statistically well-founded. Typically, their statistical properties are analyzed using statistical learning theory (for example, using Rademacher complexity).
+
+
+3.3.5.Kernel selection
+The advantage of SVM is that it can be implemented in a high-dimensional linear attribute space but with a non-linear classifier by appropriately choosing a Kernel function. The Kernel function enables SVM to perform well for high-dimensional datasets. However, choosing a Kernel function and the parameters of the Kernel function usually undergoes an exhaustive search process. Kernel selection plays an important role in SVM training and classification [9]. A properly designed Kernel function can minimize generalization error, accelerate convergence speed, and increase prediction accuracy. There are two common optimization methods, adding parameters and Kernel alignment. Adding parameters is a method for putting additional parameters in the Kernel and optimizing those parameters so as to improve the performance. Improperly chosen Kernel functions and parameters will reduce the accuracy of the SVM.
+There are four Kernel methods are available:
+1) Linear: k(x, y) = xT y + c, which does not have any parameters to optimize.
+2) Polynomial: k(x, y) = (xT y + 1) d, where we optimize the degree d.
+3) Radial Basis Function (RBF): k(x, y) = exp(-¦ ¦2) , where we optimize the ? value.
+4) Sigmoid(MLP): k(x, y) = tanh(axTy+c), where we optimize the a slope and c intercept constant.
+3.3.6.SVM parameters
+The quality of SVM models strongly depends on a proper setting of parameters and SVM approximation performance is sensitive to parameters. For Gaussian Kernel, parameters to be regulated include hyper parameters C, e and Kernel parameter ?. The values of C, ? and e are relate to the actual function model and there are not fixed for different data set. So the problem of parameter selection is complicated. The values of parameter C, ? and e affect model complexity in a different way. The parameter C determines the trade-off between model complexity and the tolerance degree of deviations larger than e. The parameter e controls the width of the e-intensive zone and can affect the number of SV in optimization problem. The Kernel parameter s determines the Kernel width and relates to the input range of the training data set.
+The advantage of SVM is that it can be implemented in a high-dimensional linear attribute space but with a non-linear classifier by appropriately choosing a Kernel function. The Kernel function enables SVM to perform well for high-dimensional datasets. However, choosing a Kernel function and the parameters of the Kernel function usually undergoes an exhaustive search process. Improperly chosen Kernel functions and parameters will reduce the accuracy of the SVM.
+
+3.4.Applications of SVM in Real World
+As we have seen, SVMs depends on supervised learning algorithms. The aim of using SVM is to correctly classify unseen data. SVMs have a number of applications in several fields.
+Some common applications of SVM are-
+	Face detection – SVMc classify parts of the image as a face and non-face and create a square boundary around the face.
+	Text and hypertext categorization – SVMs allow Text and hypertext categorization for both inductive and transductive models. They use training data to classify documents into different categories. It categorizes on the basis of the score generated and then compares with the threshold value.
+	Classification of images – Use of SVMs provides better search accuracy for image classification. It provides better accuracy in comparison to the traditional query-based searching techniques.
+	Bioinformatics – It includes protein classification and cancer classification. We use SVM for identifying the classification of genes, patients on the basis of genes and other biological problems.
+	Protein fold and remote homology detection – Apply SVM algorithms for protein remote homology detection.
+	Handwriting recognition – We use SVMs to recognize handwritten characters used widely.
+	Generalized predictive control(GPC) – Use SVM based GPC to control chaotic dynamics with useful parameters.
+3.5.Feature Selection for SVMs
+Feature Selection is an important part of machine learning. Feature selection refers to the process of reducing the inputs for processing and analysis, or of finding the most meaningful inputs. A related term, feature engineering(or feature extraction), refers to the process of extracting useful information or features from existing data.
+
+
+
+
+3.5.1.Why Do Feature Selection?
+Feature selection is critical to building a good model for several reasons. One is that feature selection implies some degree of cardinality reduction, to impose a cutoff on the number of attributes that can be considered when building a model. Data almost always contains more information than is needed to build the model, or the wrong kind of information. For example, you might have a dataset with 500 columns that describe the characteristics of customers; however, if the data in some of the columns is very sparse you would gain very little benefit from adding them to the model, and if some of the columns duplicate each other, using both columns could affect the model.
+Not only does feature selection improve the quality of the model, it also makes the process of modeling more efficient. If you use unneeded columns while building a model, more CPU and memory are required during the training process, and more storage space is required for the completed model. Even if resources were not an issue, you would still want to perform feature selection and identify the best columns, because unneeded columns can degrade the quality of the model in several ways:
+	Noisy or redundant data makes it more difficult to discover meaningful patterns.
+	If the data set is high-dimensional, most data mining algorithms require a much larger training data set.
+During the process of feature selection, either the analyst or the modeling tool or algorithm actively selects or discards attributes based on their usefulness for analysis. The analyst might perform feature engineering to add features, and remove or modify existing data, while the machine learning algorithm typically scores columns and validates their usefulness in the model.In short, feature selection helps solve two problems: having too much data that is of little value, or having too little data that is of high value. Your goal in feature selection should be to identify the minimum number of columns from the data source that are significant in building a model.
+
+
+4.Experimental Results
+The SVM methods have been experimented with data taken from the UCI Machine Learning Repository and used the Python Language to experiment the SVM algorithm. The Python Scikit-learn is a package for data classification, regression, clustering and visualization.  The dataset we used in our experiment is briefly described in Table 3.1. The data is divided in two sets. The training set is 70% and the remaining 30% are used for testing. The experiments were conducted with complete feature set.
+	Wisconsin Breast cancer Diagnostic 	32	569	2

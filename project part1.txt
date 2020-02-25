@@ -1,0 +1,126 @@
+
+
+
+
+
+
+
+
+An Efficient feature selection system for          Support Vector Machine
+
+
+
+
+
+
+
+
+
+
+An Efficient feature selection system for Support Vector Machine
+
+
+ABSTRACT
+
+The classification of medical disease prediction has become an increasingly challenging problem, due to recent advances in data collection and medical mining technology. The Clinical organizations have collected large quantities of information about patients and diseases. In this paper we examine fundamental aspects of the SVM classification in medical diagnosis.  We also discussed different Kernel methods, Kernel techniques have long been used in SVM to handle linearly inseparable problems by transforming data to a high dimensional space. And also presents a performance evaluation metrics with different parameters on the Wisconsin Breast cancer data in python Language from UCI Datasets. The empirical results demonstrate SVM classification is an efficient classification for medical disease prediction. 
+
+Keywords: SVM, Classification, Data Mining and Kernel
+
+
+
+
+1.Introduction
+
+Now a day’s various Healthcare organizations are generating huge amounts of data which are difficult to handle for further processing and it also needs to provide diagnosis aid accurately. The Healthcare organizations have collected large quantities of information about patients, diseases and their clinical lab test results. Data mining is the search for relationships and patterns within this data that could provide useful knowledge for effective decision-making. Medical data mining is one of key issues to get useful clinical knowledge from medical databases. Many different data mining techniques exist for medical diagnosis such as classification, association rules and clustering are used by clinical organization to increase their capability for making decision regarding patient health. 
+.Data mining is the process of extracting valid, previously unknown, and ultimately comprehensible information from large databases and using it to make crucial business decisions. The extracted information can be used to form a prediction or classification model, or to identify relations between database records. In this paper, SVM is used to classify the Medical data.
+The remainder of the paper is structured as follows. Section 2 discusses the overview of classification. Section 3 provides the theoretical background of Support Vector Machine for classification. In Section 4 we present experimental results for three real-world data sets and accuracy parameters are discussed. We conclude in Section 5 with some discussion of the potential significance of our results.
+1.1.What is Breast Cancer
+Breast cancer starts when cells in the breast begin to grow out of control. These cells usually form a tumor that can often be seen on an x-ray or felt as a lump. The tumor is malignant (cancer) if the cells can grow into (invade) surrounding tissues or spread (metastasize) to distant areas of the body. Breast cancer occurs almost entirely in women, but men can get breast cancer, too.
+Cells in nearly any part of the body can become cancer and can spread to other areas. To learn more about cancer and how all cancers start and spread, see Cancer Basics.
+
+
+1.2.Where breast cancer starts
+Breast cancers can start from different parts of the breast. Most breast cancers begin in the ducts that carry milk to the nipple (ductal cancers). Some start in the glands that make breast milk (lobular cancers). There are also other types of breast cancer that are less common.
+A small number of cancers start in other tissues in the breast. These cancers are called sarcomas and lymphomas and are not really thought of as breast cancers.
+Although many types of breast cancer can cause a lump in the breast, not all do.  Many breast cancers are found on screening mammograms which can detect cancers at an earlier stage, often before they can be felt, and before symptoms develop. There are other symptoms of breast cancer you should watch for and report to a health care provider.
+It’s also important to understand that most breast lumps are benign and not cancer (malignant). Non-cancerous breast tumors are abnormal growths, but they do not spread outside of the breast and they are not life threatening. But some benign breast lumps can increase a woman's risk of getting breast cancer. Any breast lump or change needs to be checked by a health care professional to determine if it is benign or malignant (cancer) and if it might affect your future cancer risk.
+1.3.How breast cancer spreads
+Breast cancer can spread when the cancer cells get into the blood or lymph system and are carried to other parts of the body. 
+The lymph system is a network of lymph (or lymphatic) vessels found throughout the body that connects lymph nodes (small bean-shaped collections of immune system cells). The clear fluid inside the lymph vessels, called lymph, contains tissue by-products and waste material, as well as immune system cells. The lymph vessels carry lymph fluid away from the breast. In the case of breast cancer, cancer cells can enter those lymph vessels and start to grow in lymph nodes. Most of the lymph vessels of the breast drain into:
+•	Lymph nodes under the arm (axillary nodes)
+•	Lymph nodes around the collar bone (supraclavicular [above the collar bone] and infraclavicular [below the collar bone] lymph nodes)
+•	Lymph nodes inside the chest near the breast bone (internal mammary lymph nodes)
+•	If cancer cells have spread to your lymph nodes, there is a higher chance that the cells could have traveled through the lymph system and spread (metastasized) to other parts of your body. The more lymph nodes with breast cancer cells, the more likely it is that the cancer may be found in other organs. Because of this, finding cancer in one or more lymph nodes often affects your treatment plan. Usually, you will need surgery to remove one or more lymph nodes to know whether the cancer has spread.
+•	Still, not all women with cancer cells in their lymph nodes develop metastases, and some women with no cancer cells in their lymph nodes develop metastases later.
+
+1.4.Fast facts on breast cancer:
+Here are some key points about breast cancer. More detail is in the main article.
+•	Breast cancer is the most common cancer among women.
+•	Symptoms include a lump or thickening of the breast, and changes to the skin or the nipple.
+•	Risk factors can be genetic, but some lifestyle factors, such as alcohol intake, make it more likely to happen.
+•	A range of treatments is available, including surgery, radiation therapy, and chemotherapy.
+•	Many breast lumps are not cancerous, but any woman who is concerned about a lump or change should see a doctor.
+1.5.Symptoms
+The first symptoms of breast cancer are usually an area of thickened tissue in the breast, or a lump in the breast or in an armpit.
+ 
+An early diagnosis of breast cancer increases the chance of recovery.
+Other symptoms include:
+•	a pain in the armpits or breast that does not change with the monthly cycle
+•	pitting or redness of the skin of the breast, like the skin of an orange
+•	a rash around or on one of the nipples
+•	a discharge from a nipple, possibly containing blood
+•	a sunken or inverted nipple
+•	a change in the size or shape of the breast
+•	peeling, flaking, or scaling of the skin on the breast or nipple
+Most lumps are not cancerous, but women should have them checked by a health care professional.
+1.6.Stages
+Cancer is staged according to the size of the tumor and whether it has spread to lymph nodes or other parts of the body.
+There are different ways of staging breast cancer. One way is from stage 0 to 4, but these may be broken down into smaller stages.
+Stage 0: Known as ductal carcinoma in situ (DCIS), the cells are limited to within a duct and have not invaded surrounding tissues.
+Stage 1: At the beginning of this stage, the tumor is up to 2 centimeters (cm) across and it has not affected any lymph nodes.
+Stage 2: The tumor is 2 cm across and it has started to spread to nearby nodes.
+Stage 3: The tumor is up to 5 cm across and it may have spread to some lymph nodes.
+Stage 4: The cancer has spread to distant organs, especially the bones, liver, brain, or lungs.
+1.7.Causes
+After puberty, a woman's breast consists of fat, connective tissue, and thousands of lobules, tiny glands that produce milk for breast-feeding. Tiny tubes, or ducts, carry the milk toward the nipple.
+In cancer, the body's cells multiply uncontrollably. It is the excessive cell growth that causes cancer.
+Breast cancer usually starts in the inner lining of milk ducts or the lobules that supply them with milk. From there, it can spread to other parts of the body.
+1.8.Risk factors
+The exact cause remains unclear, but some risk factors make it more likely. Some of these are preventable.
+1. Age
+The risk increases with age. At 20 years, the chance of developing breast cancer in the next decade is 0.6 percent. By the age of 70 years, this figure goes up to 3.84 percent.
+2. Genetics
+If a close relative has or has had, breast cancer, the risk is higher.
+Women who carry the BRCA1 and BRCA2 genes have a higher risk of developing breast cancer, ovarian cancer or both. These genes can be inherited. TP53 is another gene that is linked to a greater breast cancer risk.
+3. A history of breast cancer or breast lumps
+Women who have had breast cancer before are more likely to have it again, compared with those who have no history of the disease.
+Having some types of benign, or non-cancerous breast lumps increases the chance of developing cancer later on. Examples include atypical ductal hyperplasia or lobular carcinoma in situ.
+4. Dense breast tissue
+Breast cancer is more likely to develop in higher density breast tissue.
+5. Estrogen exposure and breast-feeding
+Being exposed to estrogen for a longer period appears to increase the risk of breast cancer.
+This could be due to starting periods earlier or entering menopause later than average. Between these times, estrogen levels are higher.
+Breast-feeding, especially for over 1 year, appears to reduce the chance of developing breast cancer, possibly because pregnancy followed by breastfeeding reduces exposure to estrogen.
+6. Body weight
+Women who are overweight or have obesity after menopause may have a higher risk of developing breast cancer, possibly due to higher levels of estrogen. High sugar intake may also be a factor.
+7. Alcohol consumption
+A higher rate of regular alcohol consumption appears to play a role. Studies have shown that women who consume more than 3 drinks a day have a 1.5 times higher risk.
+8. Radiation exposure
+Undergoing radiation treatment for a cancer that is not breast cancer increases the risk of breast cancer later in life.
+9. Hormone treatments
+The use of hormone replacement therapy (HRT) and oral birth control pills have been linked to breast cancer, due to increased levels of estrogen.
+10. Occupational hazards
+In 2012, researchers concluded that exposure to certain carcinogens and endocrine disruptors, for example in the workplace, could be linked to breast cancer.
+In 2007, scientists suggested that working night shifts could increase the risk of breast cancer, but more recent research concludes this is unlikely.
+1.9.Cosmetic implants and breast cancer survival
+Women with cosmetic breast implants who are diagnosed with breast cancer have a higher risk of dying from the disease and a 25 percent higher chance of being diagnosed at a later stage, compared with women without implants.
+This could be due to due to the implants masking cancer during screening, or because the implants bring about changes in breast tissue. More research is needed.
+1.10.Types
+Breast cancer can be:
+•	Ductal carcinoma: This begins in the milk duct and is the most common type.
+•	Lobular carcinoma: This starts in the lobules.
+Invasive breast cancer is when the cancer cells break out from inside the lobules or ducts and invade nearby tissue, increasing the chance of spreading to other parts of the body.
+Non-invasive breast cancer is when the cancer is still inside its place of origin and has not broken out. However, these cells can eventually develop into invasive breast cancer.
+Breast cancer can also affect men, but it is less common in men than in women.
+
+
